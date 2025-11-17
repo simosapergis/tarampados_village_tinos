@@ -44,6 +44,7 @@ export default function Home() {
           },
         ]}
         footerNote="Πρόσθετες ενότητες (διαμονή, εκδηλώσεις, γαστρονομία) μπορούν να ενταχθούν μόλις έχουμε το τελικό περιεχόμενο από την ομάδα."
+        footerLocale="el"
       />
 
       <section className="mx-auto flex w-full max-w-4xl flex-col gap-8 rounded-2xl border border-zinc-200 bg-white/60 p-8 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5">

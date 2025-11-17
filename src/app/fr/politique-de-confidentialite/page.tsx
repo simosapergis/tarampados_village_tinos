@@ -35,6 +35,7 @@ export default function PrivacyFr() {
         },
       ]}
       footerNote="Date d’effet et coordonnées officielles seront ajoutées ultérieurement."
+      footerLocale="fr"
     />
   );
 }

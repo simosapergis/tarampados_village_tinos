@@ -24,6 +24,7 @@ export default function ReligionEn() {
           ],
         },
       ]}
+      footerLocale="en"
     />
   );
 }

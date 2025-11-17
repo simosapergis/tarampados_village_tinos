@@ -28,6 +28,7 @@ export default function TermsFr() {
           ],
         },
       ]}
+      footerLocale="fr"
     />
   );
 }

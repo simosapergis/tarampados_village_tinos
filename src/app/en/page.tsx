@@ -38,6 +38,7 @@ export default function HomeEn() {
             ],
           },
         ]}
+        footerLocale="en"
       />
       <section className="mx-auto flex w-full max-w-4xl flex-wrap gap-3 rounded-2xl border border-zinc-200 bg-white/60 p-8 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5">
         {englishMenu.map((item) => (

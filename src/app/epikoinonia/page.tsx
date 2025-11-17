@@ -33,6 +33,7 @@ export default function ContactPage() {
           ],
         },
       ]}
+      footerLocale="el"
     />
   );
 }

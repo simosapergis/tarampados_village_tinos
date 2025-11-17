@@ -30,6 +30,7 @@ export default function CookiesEl() {
         },
       ]}
       footerNote="Οι λεπτομέρειες θα προσαρμοστούν σύμφωνα με την τελική λύση διαχείρισης consent."
+      footerLocale="el"
     />
   );
 }

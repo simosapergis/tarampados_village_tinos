@@ -35,6 +35,7 @@ export default function PrivacyPolicyEl() {
         },
       ]}
       footerNote="Τελευταία ενημέρωση: θα συμπληρωθεί στην τελική δημοσίευση."
+      footerLocale="el"
     />
   );
 }

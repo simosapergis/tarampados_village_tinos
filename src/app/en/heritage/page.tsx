@@ -20,6 +20,7 @@ export default function HeritageEn() {
         "Map of dovecotes and chapels.",
         "Gallery sourced from the Wix archive, optimized for the Vercel Edge Network.",
       ]}
+      footerLocale="en"
     />
   );
 }

@@ -1,3 +1,6 @@
+import type { Locale } from "@/i18n/config";
+import { SiteFooter } from "@/components/site-footer";
+
 type Section = {
   heading: string;
   paragraphs: string[];
@@ -9,6 +12,7 @@ type PageShellProps = {
   sections?: Section[];
   highlights?: string[];
   footerNote?: string;
+  footerLocale?: Locale;
 };
 
 export function PageShell({
@@ -17,6 +21,7 @@ export function PageShell({
   sections = [],
   highlights = [],
   footerNote,
+  footerLocale,
 }: PageShellProps) {
   return (
     <div className="flex min-h-screen justify-center bg-zinc-50 px-6 py-16 text-zinc-900 dark:bg-black dark:text-zinc-50">
@@ -59,10 +64,15 @@ export function PageShell({
           </section>
         ))}
 
-        {footerNote && (
-          <footer className="border-t border-dashed border-zinc-200 pt-6 text-sm text-zinc-500 dark:border-white/10 dark:text-zinc-400">
-            {footerNote}
-          </footer>
+        {(footerNote || footerLocale) && (
+          <div className="space-y-4 border-t border-dashed border-zinc-200 pt-6 dark:border-white/10">
+            {footerNote && (
+              <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                {footerNote}
+              </p>
+            )}
+            {footerLocale && <SiteFooter locale={footerLocale} />}
+          </div>
         )}
       </article>
     </div>

@@ -35,6 +35,7 @@ export default function PrivacyPolicyEn() {
         },
       ]}
       footerNote="Effective date and legal representative will be inserted with the finalized document."
+      footerLocale="en"
     />
   );
 }

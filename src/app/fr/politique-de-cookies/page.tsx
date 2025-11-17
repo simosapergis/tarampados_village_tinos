@@ -30,6 +30,7 @@ export default function CookiesFr() {
         },
       ]}
       footerNote="Les prestataires tiers seront listés dans la version finale."
+      footerLocale="fr"
     />
   );
 }

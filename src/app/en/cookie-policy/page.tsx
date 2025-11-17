@@ -29,6 +29,7 @@ export default function CookiesEn() {
           ],
         },
       ]}
+      footerLocale="en"
     />
   );
 }

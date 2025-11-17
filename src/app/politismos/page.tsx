@@ -27,6 +27,7 @@ export default function CulturePage() {
           ],
         },
       ]}
+      footerLocale="el"
     />
   );
 }

@@ -29,6 +29,7 @@ export default function HeritageOverviewPage() {
           ],
         },
       ]}
+      footerLocale="el"
     />
   );
 }
