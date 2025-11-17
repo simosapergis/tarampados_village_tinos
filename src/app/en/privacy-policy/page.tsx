@@ -12,29 +12,44 @@ export default function PrivacyPolicyEn() {
     <PageShell
       title="Privacy Policy"
       introduction={[
-        "This is a working draft that will be replaced by the final legal copy. It outlines the principles we already follow while migrating content.",
+        "At tarampados.gr, the protection of your personal data is of utmost importance to us. This Privacy Policy describes how we collect, use and protect the information you provide to us.",
       ]}
       sections={[
         {
-          heading: "Data we collect",
+          heading: "What data do we collect?",
           paragraphs: [
-            "Contact forms (name, email, message), newsletter subscriptions and anonymized analytics. No payment data is processed on this site.",
+            "Personal information such as your name, email and phone number if you choose to provide them.",
+            "Browsing data including IP address, browser type, pages you visit and time spent.",
           ],
         },
         {
-          heading: "Usage",
+          heading: "How we use your data",
           paragraphs: [
-            "We reply to inquiries, manage visit requests and measure how users interact with the new experience so we can improve it.",
+            "To provide you with our services and answer your questions.",
+            "To improve the user experience of our website.",
+            "To send you informational emails, if you have opted in to receive them.",
+          ],
+        },
+        {
+          heading: "Sharing your data",
+          paragraphs: [
+            "We do not share your personal data with third parties unless required by law or to provide our services.",
           ],
         },
         {
           heading: "Your rights",
           paragraphs: [
-            "Visitors may request access, correction or deletion at any time. A dedicated GDPR form will launch alongside the production release.",
+            "You have the right to request access, correction or deletion of your data at any time.",
+            "To exercise your rights, please contact us at tarampados@gmail.com.",
+          ],
+        },
+        {
+          heading: "Data security",
+          paragraphs: [
+            "We take all necessary technical and organizational measures to ensure that your data is protected.",
           ],
         },
       ]}
-      footerNote="Effective date and legal representative will be inserted with the finalized document."
       footerLocale="en"
     />
   );

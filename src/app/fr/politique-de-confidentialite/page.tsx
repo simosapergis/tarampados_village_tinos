@@ -12,29 +12,44 @@ export default function PrivacyFr() {
     <PageShell
       title="Politique de confidentialité"
       introduction={[
-        "Ce texte sera remplacé par la version validée par notre conseil juridique. Il décrit dès maintenant les principes suivis pendant la migration.",
+        "Chez tarampados.gr, la protection de vos données personnelles est de la plus haute importance pour nous. Cette politique décrit la manière dont nous collectons, utilisons et protégeons les informations que vous nous fournissez.",
       ]}
       sections={[
         {
-          heading: "Collecte",
+          heading: "Quelles données collectons-nous ?",
           paragraphs: [
-            "Formulaires de contact, inscriptions à la newsletter et données analytiques anonymisées. Aucun paiement n’est traité ici.",
+            "Informations personnelles : nom, email et téléphone si vous choisissez de nous les communiquer.",
+            "Données de navigation : adresse IP, type de navigateur, pages visitées et temps passé.",
           ],
         },
         {
-          heading: "Usage",
+          heading: "Comment nous utilisons vos données",
           paragraphs: [
-            "Réponse aux demandes, organisation de visites et amélioration continue de l’expérience en ligne.",
+            "Pour vous fournir nos services et répondre à vos questions.",
+            "Pour améliorer l’expérience utilisateur de notre site.",
+            "Pour vous envoyer des emails d’information si vous avez choisi de les recevoir.",
           ],
         },
         {
-          heading: "Droits",
+          heading: "Partage de vos données",
           paragraphs: [
-            "Chaque visiteur peut demander l’accès, la rectification ou la suppression de ses données via un formulaire dédié.",
+            "Nous ne partageons pas vos données personnelles avec des tiers, sauf si la loi l’exige ou pour fournir nos services.",
+          ],
+        },
+        {
+          heading: "Vos droits",
+          paragraphs: [
+            "Vous pouvez demander à tout moment l’accès, la rectification ou la suppression de vos données.",
+            "Pour exercer vos droits, contactez-nous à l’adresse tarampados@gmail.com.",
+          ],
+        },
+        {
+          heading: "Sécurité des données",
+          paragraphs: [
+            "Nous prenons toutes les mesures techniques et organisationnelles nécessaires pour garantir la protection de vos données.",
           ],
         },
       ]}
-      footerNote="Date d’effet et coordonnées officielles seront ajoutées ultérieurement."
       footerLocale="fr"
     />
   );
