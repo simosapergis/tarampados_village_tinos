@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navLinks } from "@/lib/navigation";
+import { navLinks, translatePathname } from "@/lib/navigation";
 import { localeLabels, locales, type Locale } from "@/i18n/config";
 
 function resolveLocale(pathname: string): Locale {
@@ -14,12 +14,6 @@ function resolveLocale(pathname: string): Locale {
   }
   return "el";
 }
-
-const localeHome: Record<Locale, string> = {
-  el: "/",
-  en: "/en",
-  fr: "/fr",
-};
 
 const localeBadge: Record<Locale, string> = {
   el: "Κυκλάδες · Τήνος",
@@ -62,7 +56,7 @@ export function SiteHeader() {
           {links.map((link) => {
             const exactMatch = pathname === link.href;
             const childMatch =
-              link.href !== "/" && pathname.startsWith(`${link.href}/`);
+              link.key !== "home" && pathname.startsWith(`${link.href}/`);
             const isActive = exactMatch || childMatch;
             return (
               <Link
@@ -86,7 +80,7 @@ export function SiteHeader() {
             return (
               <Link
                 key={locale}
-                href={localeHome[locale]}
+                href={translatePathname(pathname, locale)}
                 className={[
                   "rounded-full px-3 py-1.5 text-sm font-medium transition",
                   isActive
