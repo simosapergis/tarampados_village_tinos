@@ -12,15 +12,32 @@ export default function ReligionEn() {
     <PageShell
       title="Religion"
       introduction={[
-        "Pilgrims and visitors often combine a trip to Tarampados with the major celebrations of Tinos. This page will share practical details and the symbolism behind each local feast.",
+        "The Catholic church of Saint Michael in Tarampados dates back to 1810 and is one of the 30 parishes of the Catholic Archdiocese of Naxos-Tinos-Andros-Mykonos. The parish itself was founded in 1789, with earlier liturgical objects dating to 1532.",
+        "The chapel of Saint Charalambos appears in 1828 records as an Orthodox sanctuary serving nearby villages, with a marble lintel indicating it was already parish territory by 1726.",
       ]}
       sections={[
         {
-          heading: "Content ideas",
+          heading: "Saint Michael",
           paragraphs: [
-            "Profiles of volunteers that keep the liturgies organized.",
-            "Photo essays of the Holy Trinity chapel and the surrounding terraces.",
-            "Audio snippets capturing hymns and bells.",
+            "Each year on September 29 the village celebrates Saint Michael with a solemn Vespers and community gathering.",
+          ],
+        },
+        {
+          heading: "Saint Charalambos",
+          paragraphs: [
+            "Originally listed as a chapel of Kambos parish, it became a focal point for Orthodox communities who continued to restore and adorn it through the 18th and 19th centuries.",
+          ],
+        },
+        {
+          heading: "Panagia Vrysiotissa",
+          paragraphs: [
+            "The revered icon is housed in the parish church and carried to Vrysi every May for blessings, including special prayers for drivers since 1967.",
+          ],
+        },
+        {
+          heading: "“Bebum Karum”",
+          paragraphs: [
+            "A Christmas tradition rooted in the Latin “Verbum Caro Factum Est”, combining family meals, Midnight Mass, and the sharing of fish soup and grilled sausage to symbolize the Incarnation.",
           ],
         },
       ]}
