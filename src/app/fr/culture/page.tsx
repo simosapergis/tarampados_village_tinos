@@ -12,15 +12,16 @@ export default function CultureFr() {
     <PageShell
       title="Culture"
       introduction={[
-        "Entre tradition et création contemporaine, Tarampados accueille des projections, des résidences d’artistes et des ateliers de marbrerie.",
+        "Dans la vallée de Tarabados et sur les plateaux de chaque côté se trouvent certains des plus anciens et des mieux décorés colombiers de l'île.",    
       ]}
       sections={[
         {
-          heading: "Mise en avant",
+          heading: "Les colombiers",
           paragraphs: [
-            "Calendrier des événements (été, automne, hiver).",
-            "Focus sur les colombiers et leur influence architecturale.",
-            "Idées de collaborations avec des écoles d’art francophones.",
+            "D'origine italienne (région des Pouilles), ces constructions sont de véritables monuments culturels.",
+        "Sous la domination vénitienne, la propriété des colombiers était réservée aux 69 seigneurs féodaux de l'île. On ignore si l'élevage de pigeons existait avant cette période.",
+            "Cependant, les pigeons, en plus de leur viande, enrichissent les sols grâce à leurs excréments, considérés comme un excellent engrais. Après l'indépendance, les habitants de l'île continuèrent cette pratique.",
+            "Les colombiers, construits en schiste local, comportent deux étages : l'inférieur servait à stocker les outils agricoles, les aliments pour les animaux ou les engrais, tandis que les pigeons habitaient l'étage supérieur.",
           ],
         },
       ]}
