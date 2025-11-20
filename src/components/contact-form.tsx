@@ -45,44 +45,44 @@ export function ContactForm() {
   }
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit}>
+    <form className="space-y-5" onSubmit={handleSubmit}>
       <div>
-        <label className="text-sm font-medium text-slate-200">
+        <label className="text-sm font-semibold text-stone-600">
           Ονοματεπώνυμο
         </label>
         <input
           type="text"
           name="name"
-          className="mt-2 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-slate-400 focus:border-sky-300 focus:outline-none"
+          className="mt-2 w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-stone-900 placeholder:text-stone-400 focus:border-emerald-500 focus:outline-none"
           placeholder="Πληκτρολογήστε το όνομά σας"
           required
         />
       </div>
       <div>
-        <label className="text-sm font-medium text-slate-200">Email</label>
+        <label className="text-sm font-semibold text-stone-600">Email</label>
         <input
           type="email"
           name="email"
-          className="mt-2 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-slate-400 focus:border-sky-300 focus:outline-none"
+          className="mt-2 w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-stone-900 placeholder:text-stone-400 focus:border-emerald-500 focus:outline-none"
           placeholder="your@email.com"
           required
         />
       </div>
       <div>
-        <label className="text-sm font-medium text-slate-200">Θέμα</label>
+        <label className="text-sm font-semibold text-stone-600">Θέμα</label>
         <input
           type="text"
           name="subject"
-          className="mt-2 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-slate-400 focus:border-sky-300 focus:outline-none"
+          className="mt-2 w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-stone-900 placeholder:text-stone-400 focus:border-emerald-500 focus:outline-none"
           placeholder="Περιγράψτε σύντομα το αίτημα"
         />
       </div>
       <div>
-        <label className="text-sm font-medium text-slate-200">Μήνυμα</label>
+        <label className="text-sm font-semibold text-stone-600">Μήνυμα</label>
         <textarea
           name="message"
           rows={4}
-          className="mt-2 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-slate-400 focus:border-sky-300 focus:outline-none"
+          className="mt-2 w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-stone-900 placeholder:text-stone-400 focus:border-emerald-500 focus:outline-none"
           placeholder="Γράψτε το μήνυμά σας"
           required
         />
@@ -90,17 +90,17 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={formState === "loading"}
-        className="w-full rounded-2xl bg-white px-6 py-3 text-center text-slate-900 font-semibold transition hover:-translate-y-0.5 hover:bg-slate-200 disabled:cursor-not-allowed disabled:opacity-70"
+        className="w-full rounded-2xl bg-emerald-600 px-6 py-3 text-center font-semibold text-white shadow-lg transition duration-300 hover:scale-[1.02] hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-70"
       >
         {formState === "loading" ? "Αποστολή..." : "Αποστολή"}
       </button>
       {formState === "success" && (
-        <p className="text-sm text-emerald-300">
+        <p className="text-sm text-emerald-600">
           Το μήνυμά σας εστάλη με επιτυχία!
         </p>
       )}
       {errorMessage && (
-        <p className="text-sm text-rose-300">{errorMessage}</p>
+        <p className="text-sm text-rose-500">{errorMessage}</p>
       )}
     </form>
   );
