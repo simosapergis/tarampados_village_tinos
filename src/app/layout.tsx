@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { defaultLocale } from "@/i18n/config";
 import { SiteHeader } from "@/components/site-header";
+import { PageTransition } from "@/components/page-transition";
 import { siteMetadata } from "@/lib/site-metadata";
 
 const geistSans = Geist({
@@ -70,9 +71,11 @@ export default function RootLayout({
   return (
     <html lang={defaultLocale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-black dark:text-zinc-50">
+        <div className="flex min-h-screen flex-col bg-zinc-50 text-zinc-900 dark:bg-black dark:text-zinc-50">
           <SiteHeader />
-          <main>{children}</main>
+          <main className="flex-1">
+            <PageTransition>{children}</PageTransition>
+          </main>
         </div>
         <script
           type="application/ld+json"
