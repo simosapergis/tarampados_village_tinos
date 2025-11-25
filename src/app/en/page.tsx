@@ -13,7 +13,7 @@ export default function HomeEn() {
     <div className="space-y-12">
       <PageShell
         title="Home"
-        heroImage="/images/hero/home_1.jpg"
+        heroImage="/images/hero/home_1.webp"
         introduction={[
           "Discover the beauty, tradition and culture of our village. Tarambados invites international visitors to explore its ravines, dovecotes and living customs.",
           "These sections mirror the organization of the Greek site so that all audiences can follow the same routes and stories.",

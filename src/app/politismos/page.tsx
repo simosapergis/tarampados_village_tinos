@@ -17,7 +17,7 @@ export default function CulturePage() {
   return (
     <PageShell
       title="Πολιτισμός"
-      heroImage="/images/hero/culture.avif"
+      heroImage="/images/hero/culture.webp"
       heroFit="cover"
       introduction={[
         "Στην κοιλάδα του Ταραμπάδου και στα πλατώματα δεξιά και αριστερά της υπάρχουν οι περισσότεροι και μερικοί από τους παλιότερους και καλύτερα διακοσμημένους περιστεριώνες στο νησί.",

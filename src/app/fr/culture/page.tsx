@@ -17,7 +17,7 @@ export default function CultureFr() {
   return (
     <PageShell
       title="Culture"
-      heroImage="/images/hero/culture.avif"
+      heroImage="/images/hero/culture.webp"
       heroFit="cover"
       introduction={[
         "Dans la vallée de Tarabados et sur les plateaux de chaque côté se trouvent certains des plus anciens et des mieux décorés colombiers de l'île.",    

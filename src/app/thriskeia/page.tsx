@@ -12,7 +12,7 @@ export default function ReligionPage() {
   return (
     <PageShell
       title="Θρησκεία"
-      heroImage="/images/hero/religion.jpg"
+      heroImage="/images/hero/religion.webp"
       heroFit="cover"
       introduction={[
         "Εδώ συγκεντρώνονται όλες οι πληροφορίες για τους ναούς του Αγίου Μιχαήλ και Αγίου Χαραλάμπους, το προσκύνημα της Παναγίας Βρυσιώτισσας και το έθιμο «Μπέμπουμ Κάρουμ».",

@@ -11,7 +11,7 @@ export default function OurVillageEn() {
   return (
     <PageShell
       title="Our Village"
-      heroImage="/images/hero/our_village.jpg"
+      heroImage="/images/hero/our_village.webp"
       introduction={[
         "Small narrow streets, arches, stables and cellars under the houses define Tarampados. People here are kind, simple, hospitable and always smiling.",
         "It is an agricultural village bordering Kampos and Smardakitou. Decades ago the wider Mesaria area gathered the villages of Mesarea, Karados and Kouroupados until a plague in the mid‑17th century forced residents to flee or perish. Tarampados is the last village built on the island.",

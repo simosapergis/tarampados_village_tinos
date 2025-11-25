@@ -13,7 +13,7 @@ export default function HomeFr() {
     <div className="space-y-12">
       <PageShell
         title="Accueil"
-        heroImage="/images/hero/home_1.jpg"
+        heroImage="/images/hero/home_1.webp"
         introduction={[
           "Découvrez la beauté, la tradition et la culture de notre village.",
           "Chaque section reflète la hiérarchie grecque afin de guider les visiteurs francophones vers les mêmes itinéraires et archives.",

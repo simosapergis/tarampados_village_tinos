@@ -17,7 +17,7 @@ export default function CultureEn() {
   return (
     <PageShell
       title="Culture"
-      heroImage="/images/hero/culture.avif"
+      heroImage="/images/hero/culture.webp"
       heroFit="cover"
       introduction={[
         "In the valley of Tarambados and on the plateaus to its right and left, there are most and some of the oldest and best decorated dovecotes on the island.",    
