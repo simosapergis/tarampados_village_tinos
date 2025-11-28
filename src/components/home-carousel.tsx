@@ -187,7 +187,7 @@ export function HomeCarousel({ locale }: HomeCarouselProps) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 960px"
             priority
           />
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-6 text-white">
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-6 text-white hidden sm:block">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
               {slides[active].label[locale]}
             </p>
