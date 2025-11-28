@@ -9,8 +9,7 @@ export type RouteKey =
   | "culture"
   | "contact"
   | "privacy"
-  | "terms"
-  | "cookies";
+  | "terms";
 
 const localeRoutes: Record<RouteKey, LocalePaths> = {
   home: { el: "/", en: "/en", fr: "/fr" },
@@ -44,11 +43,6 @@ const localeRoutes: Record<RouteKey, LocalePaths> = {
     en: "/en/terms-of-use",
     fr: "/fr/conditions-d-utilisation",
   },
-  cookies: {
-    el: "/politiki-cookies",
-    en: "/en/cookie-policy",
-    fr: "/fr/politique-de-cookies",
-  },
 };
 
 const navOrder: RouteKey[] = [
@@ -68,7 +62,6 @@ const navLabels: Record<Locale, Record<RouteKey, string>> = {
     contact: "Επικοινωνία",
     privacy: "Πολιτική Απορρήτου",
     terms: "Πολιτική Χρήσης",
-    cookies: "Πολιτική Cookies",
   },
   en: {
     home: "Our Village",
@@ -78,7 +71,6 @@ const navLabels: Record<Locale, Record<RouteKey, string>> = {
     contact: "Contact",
     privacy: "Privacy Policy",
     terms: "Terms of Use",
-    cookies: "Cookie Policy",
   },
   fr: {
     home: "Notre Village",
@@ -88,7 +80,6 @@ const navLabels: Record<Locale, Record<RouteKey, string>> = {
     contact: "Contact",
     privacy: "Politique de confidentialité",
     terms: "Conditions d’utilisation",
-    cookies: "Politique de cookies",
   },
 };
 

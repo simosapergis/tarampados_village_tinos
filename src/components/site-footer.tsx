@@ -24,7 +24,6 @@ const footerContent: Record<Locale, FooterContent> = {
     policyLinks: [
       { label: "Πολιτική Απορρήτου", href: "/politiki-aporritou" },
       { label: "Πολιτική Χρήσης", href: "/politiki-chrisis" },
-      { label: "Πολιτική Cookies", href: "/politiki-cookies" },
     ],
     legalLabel: "Νομικά στοιχεία",
     legalLines: [
@@ -46,7 +45,6 @@ const footerContent: Record<Locale, FooterContent> = {
     policyLinks: [
       { label: "Privacy Policy", href: "/en/privacy-policy" },
       { label: "Terms of Use", href: "/en/terms-of-use" },
-      { label: "Cookie Policy", href: "/en/cookie-policy" },
     ],
     legalLabel: "Legal details",
     legalLines: [
@@ -73,10 +71,6 @@ const footerContent: Record<Locale, FooterContent> = {
       {
         label: "Conditions d’utilisation",
         href: "/fr/conditions-d-utilisation",
-      },
-      {
-        label: "Politique de cookies",
-        href: "/fr/politique-de-cookies",
       },
     ],
     legalLabel: "Mentions légales",
