@@ -28,7 +28,6 @@ export default function TermsEl() {
           ],
         },
       ]}
-      footerNote="Για ερωτήσεις σχετικές με τους όρους, επικοινωνήστε με την ομάδα διαχείρισης."
       locale="el"
     />
   );

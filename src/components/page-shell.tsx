@@ -20,6 +20,7 @@ type PageShellProps = {
   locale: Locale;
   showFooter?: boolean;
   afterHero?: ReactNode;
+  afterSections?: ReactNode;
 };
 
 const eyebrowCopy: Record<Locale, string> = {
@@ -39,6 +40,7 @@ export function PageShell({
   locale,
   showFooter = true,
   afterHero,
+  afterSections,
 }: PageShellProps) {
   void _highlights;
   const eyebrowClass = heroImage
@@ -131,6 +133,8 @@ export function PageShell({
               </div>
             </section>
           ))}
+
+          {afterSections && <div>{afterSections}</div>}
 
           {(footerNote || showFooter) && (
             <div className="space-y-4 border-t border-dashed border-stone-200 pt-6">

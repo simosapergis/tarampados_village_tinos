@@ -28,7 +28,6 @@ export default function TermsEn() {
           ],
         },
       ]}
-      footerNote="Reach the coordination team if you need a formal license or API access."
       locale="en"
     />
   );
