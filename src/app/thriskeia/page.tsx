@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageShell } from "@/components/page-shell";
 import heroReligion from "@public/images/hero/religion.webp";
+import saintMichaelImage from "@public/images/pages/religion/saint_michael.avif";
+import saintCharalambosImage from "@public/images/pages/religion/saint_charalambos.avif";
+import virginMaryImage from "@public/images/pages/religion/virgin_mary_of_vrysi.avif";
 
 export const metadata: Metadata = {
   title: "Θρησκεία | Tarampados Village",
@@ -40,7 +43,7 @@ export default function ReligionPage() {
               <figure className="w-full max-w-sm shrink-0 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-md">
                 <div className="relative h-64 w-full">
                   <Image
-                    src="/images/pages/religion/saint_michael.avif"
+                    src={saintMichaelImage}
                     alt="Εσωτερικό και λεπτομέρειες από τον Ναό Αγίου Μιχαήλ"
                     fill
                     className="object-contain bg-stone-950"
@@ -76,7 +79,7 @@ export default function ReligionPage() {
               <figure className="w-full max-w-sm shrink-0 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-md">
                 <div className="relative h-64 w-full">
                   <Image
-                    src="/images/pages/religion/saint_charalambos.avif"
+                    src={saintCharalambosImage}
                     alt="Άποψη του Ναού Αγίου Χαραλάμπους στον Ταραμπάδο"
                     fill
                     className="object-contain bg-stone-950"
@@ -100,7 +103,7 @@ export default function ReligionPage() {
             >
               <div className="relative h-72 w-full">
                 <Image
-                  src="/images/pages/religion/virgin_mary_of_vrysi.avif"
+                  src={virginMaryImage}
                   alt="Προσκύνημα Παναγίας Βρυσιώτισσας"
                   fill
                   className="object-contain bg-stone-950"

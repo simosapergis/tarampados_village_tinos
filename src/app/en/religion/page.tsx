@@ -1,5 +1,10 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
+import heroReligion from "@public/images/hero/religion.webp";
+import saintMichaelImage from "@public/images/pages/religion/saint_michael.avif";
+import saintCharalambosImage from "@public/images/pages/religion/saint_charalambos.avif";
+import virginMaryImage from "@public/images/pages/religion/virgin_mary_of_vrysi.avif";
 
 export const metadata: Metadata = {
   title: "Religion | Tarampados Village",
@@ -11,40 +16,111 @@ export default function ReligionEn() {
   return (
     <PageShell
       title="Religion"
+      heroImage={heroReligion}
+      heroFit="cover"
       introduction={[
-        "This page gathers the full narrative for the churches of St. Michael and St. Charalambos, the Virgin Mary of Vrysi pilgrimage, and the “Bebum Carum” Christmas custom.",
-        "Expect detailed, unedited text straight from the local community—covering history, feast days, miracles, and rituals that define Tarampados’ spiritual life.",
-        "Use it as a reference when planning visits or documenting the village’s religious heritage.",
+        "Here you will find original text that preserves the histories, feast days, miracles, and rituals as they are passed down by the people of Tarampados.",
+        "The churches of St. Michael and St. Charalambos, the pilgrimage of the Virgin Mary of Vrysi, and the “Bebum Carum” custom are documented exactly as the community lives them.",
       ]}
       sections={[
         {
           heading: "Church of St. Michael",
           paragraphs: [
-            "The Catholic Church of St. Michael in Tarampados is one of the 30 parishes of the Catholic Archdiocese of Naxos - Tinos - Andros - Mykonos.",
-            "There is no sufficient information about the year of the rebuilding of the first church at this location.",
-            "",
-            "The existing church dates back to 1810 , while the year of foundation of the parish is 1789. During a recent replacement of the St. Bank's utensils, a chalice was discovered with the year 1532 inscribed on it.",
-            "",
-            "On September 29, St. Michael is celebrated in the village church and on the eve of the feast day a solemn vespers is held.",
+            <div
+              key="saint-michael-block"
+              className="flex flex-col gap-6 lg:flex-row lg:items-start"
+            >
+              <div className="space-y-3 text-lg leading-8 text-stone-700">
+                <p>
+                  The Catholic Church of St. Michael in Tarampados is one of the 30 parishes of the Catholic Archdiocese of Naxos – Tinos – Andros – Mykonos.
+                  There is no definitive record for the construction of the very first church at this site.
+                </p>
+                <p>
+                  The present church dates to 1810, while the parish itself was founded in 1789. During a recent restoration of the altar vessels, a chalice
+                  engraved with the year 1532 was discovered.
+                </p>
+                <p>
+                  Every 29 September the community celebrates St. Michael with a festive Mass, preceded by a solemn vespers the evening before.
+                </p>
+              </div>
+              <figure className="w-full max-w-sm shrink-0 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-md">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={saintMichaelImage}
+                    alt="Interior details of the Church of St. Michael in Tarampados"
+                    fill
+                    className="object-contain bg-stone-950"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    priority
+                  />
+                </div>
+                <figcaption className="px-4 py-3 text-sm text-stone-600">
+                  Details from St. Michael’s, the parish that gathers the village every September.
+                </figcaption>
+              </figure>
+            </div>,
           ],
         },
         {
           heading: "Church of St. Charalambos",
           paragraphs: [
-            "The church of St. Charalambos in Tarampados is recorded for the first time in the 1828 census as a chapel of the parish of the village of Kampos and even for the Orthodox inhabitants, who from 1767-1774 had the church of St. Catherine in the same village as their cathode.",
-            "",
-            "In the 1828 census it was listed as owned by a man named Finale, who also owned the chapel of St. John in 'Floroporia'.",
-            "",
-            "A marble lintel with an inscription above the entrance to the built-in bell-tower informs us that the church is older than the date mentioned on the bell-tower, and that just at that time major renovations took place, which seem to have continued with donations of icons, furniture and other items.",
-            "",
-            "Both the above-mentioned inscription and the number of names of the donors indicate that the church was already a parish church as early as 1726.",
-            "",
-            "The pre-existence of the church of Agios Charalambos or its construction at that time marked the symbolic limits of the warding off of evil, and its worship among the inhabitants, mainly the Orthodox, became widespread, so that even at the end of the 19th century it was still held in high esteem by the Orthodox Falatadians, Hadjiradian, Ktikadian and Tripotamian.",
+            <div
+              key="saint-charalambos-block"
+              className="flex flex-col gap-6 lg:flex-row lg:items-start"
+            >
+              <div className="space-y-3 text-lg leading-8 text-stone-700">
+                <p>
+                  St. Charalambos is first recorded in the 1828 census as a chapel belonging to the nearby village of Kampos, mainly serving the Orthodox
+                  families who once worshipped at St. Catherine.
+                </p>
+                <p>
+                  That census lists the chapel as the property of a local named Finale, who also owned the chapel of St. John at “Floroporia”. A marble lintel
+                  above the bell tower bears an inscription proving that the church predates the documented renovations and that steady donations of icons,
+                  furniture, and liturgical items followed.
+                </p>
+                <p>
+                  The dedication to St. Charalambos symbolised protection for the area. By the late 19th century the church remained a point of pride for the
+                  Orthodox of Falatados, Hatzirados, Ktikados, and Tripotamos.
+                </p>
+              </div>
+              <figure className="w-full max-w-sm shrink-0 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-md">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={saintCharalambosImage}
+                    alt="Exterior of St. Charalambos Church in Tarampados"
+                    fill
+                    className="object-contain bg-stone-950"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    priority
+                  />
+                </div>
+                <figcaption className="px-4 py-3 text-sm text-stone-600">
+                  St. Charalambos, the chapel that became a landmark for surrounding Orthodox villages.
+                </figcaption>
+              </figure>
+            </div>,
           ],
         },
         {
           heading: "Virgin Mary of Vrysi",
           paragraphs: [
+            <figure
+              key="vrysi-photo"
+              className="mb-6 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-md"
+            >
+              <div className="relative h-72 w-full">
+                <Image
+                  src={virginMaryImage}
+                  alt="Pilgrims gathered at the Virgin Mary of Vrysi sanctuary"
+                  fill
+                  className="object-contain bg-stone-950"
+                  sizes="(max-width: 768px) 100vw, 960px"
+                />
+              </div>
+              <figcaption className="px-4 py-3 text-sm text-stone-600">
+                The Vrysi pilgrimage, a Marian sanctuary for the wider Cycladic community.
+              </figcaption>
+            </figure>,
             "The Virgin Mary of Vrysi is the Theometric Pilgrimage of the Ecclesiastical Province of Naxos-Tinos-Andros-Mykonos.",
             "Following the road to Exomeria, we reach the crossroads of Agia Marina, and taking the road leading to Agios Romanos, we meet the Pilgrimage of Vrysiotissa.",
             "",

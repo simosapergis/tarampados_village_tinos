@@ -1,5 +1,10 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
+import heroReligion from "@public/images/hero/religion.webp";
+import saintMichaelImage from "@public/images/pages/religion/saint_michael.avif";
+import saintCharalambosImage from "@public/images/pages/religion/saint_charalambos.avif";
+import virginMaryImage from "@public/images/pages/religion/virgin_mary_of_vrysi.avif";
 
 export const metadata: Metadata = {
   title: "Religion | Tarampados Village",
@@ -11,31 +16,110 @@ export default function ReligionFr() {
   return (
     <PageShell
       title="Religion"
+      heroImage={heroReligion}
+      heroFit="cover"
       introduction={[
-        "Cette page présente la documentation complète sur Saint-Michel, Saint-Charalambos, Panaghia de Vrysi et la coutume « Bébum Karum » telle qu’elle est transmise localement.",
-        "Vous y trouverez des descriptions historiques, des récits de miracles et le détail des célébrations pour préparer vos visites ou vos recherches.",
-        "Chaque section conserve le ton original afin de préserver la mémoire vivante du sanctuaire.",
+        "Vous trouverez ici des textes authentiques qui préservent les récits, les fêtes, les miracles et les gestes liturgiques tels qu’ils sont transmis par les habitants de Tarambados.",
+        "Les églises de Saint-Michel et Saint-Charalambos, le pèlerinage de la Vierge de Vrysi et la coutume « Bébum Karum » sont présentés avec la voix de la communauté qui les vit.",
       ]}
       sections={[
         {
           heading: "Église Saint-Michel",
           paragraphs: [
-            "L’église catholique Saint-Michel à Tarambados est l'une des 30 paroisses de l'archidiocèse catholique de Naxos-Tinos-Andros-Mykonos.",
-            "Le bâtiment actuel date de 1810, mais la paroisse fut établie en 1789.",
-            "Lors de récents travaux, un calice daté de 1532 a été découvert. La fête de Saint-Michel est célébrée le 29 septembre.",
+            <div
+              key="saint-michel-bloc"
+              className="flex flex-col gap-6 lg:flex-row lg:items-start"
+            >
+              <div className="space-y-3 text-lg leading-8 text-stone-700">
+                <p>
+                  L’église catholique Saint-Michel à Tarambados fait partie des 30 paroisses de l’archidiocèse de Naxos – Tinos – Andros – Mykonos. Aucun
+                  document ne précise la date exacte de la première construction à cet emplacement.
+                </p>
+                <p>
+                  L’édifice actuel remonte à 1810, tandis que la paroisse fut fondée en 1789. Lors de récents travaux, un calice gravé de la date 1532 a été
+                  retrouvé, attestant l’ancienneté de la communauté.
+                </p>
+                <p>
+                  Chaque 29 septembre, Tarambados fête Saint-Michel avec une messe solennelle, précédée la veille par des vêpres festives.
+                </p>
+              </div>
+              <figure className="w-full max-w-sm shrink-0 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-md">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={saintMichaelImage}
+                    alt="Intérieur de l’église Saint-Michel à Tarambados"
+                    fill
+                    className="object-contain bg-stone-950"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    priority
+                  />
+                </div>
+                <figcaption className="px-4 py-3 text-sm text-stone-600">
+                  Détails de l’église Saint-Michel où le village se rassemble chaque septembre.
+                </figcaption>
+              </figure>
+            </div>,
           ],
         },
         {
           heading: "Église Saint-Charalambos",
           paragraphs: [
-            "L'église Saint-Charalampos, mentionnée pour la première fois en 1828, servait d'annexe pour les habitants orthodoxes du village voisin de Kambos.",
-            "Une inscription sur le clocher révèle que l'église existait déjà en 1726, bien avant sa rénovation.",
-            "Elle joua un rôle protecteur symbolique contre le mal et reste très vénérée.",
+            <div
+              key="saint-charalambos-bloc"
+              className="flex flex-col gap-6 lg:flex-row lg:items-start"
+            >
+              <div className="space-y-3 text-lg leading-8 text-stone-700">
+                <p>
+                  Mentionnée pour la première fois en 1828, l’église Saint-Charalambos servait d’annexe pour les habitants orthodoxes du village voisin de
+                  Kambos.
+                </p>
+                <p>
+                  Une inscription sur le clocher indique que le sanctuaire existait déjà en 1726, bien avant les rénovations, et que les dons d’icônes et de
+                  mobilier se sont poursuivis pendant des décennies.
+                </p>
+                <p>
+                  Sa dédicace symbolisait une protection contre le mal ; jusqu’à la fin du XIXe siècle, les villages orthodoxes voisins lui portaient une
+                  grande vénération.
+                </p>
+              </div>
+              <figure className="w-full max-w-sm shrink-0 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-md">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={saintCharalambosImage}
+                    alt="Extérieur de l’église Saint-Charalambos à Tarambados"
+                    fill
+                    className="object-contain bg-stone-950"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    priority
+                  />
+                </div>
+                <figcaption className="px-4 py-3 text-sm text-stone-600">
+                  Saint-Charalambos, repère spirituel pour les villages orthodoxes voisins.
+                </figcaption>
+              </figure>
+            </div>,
           ],
         },
         {
           heading: "Panaghia de Vrysi",
           paragraphs: [
+            <figure
+              key="vrysi-photo-fr"
+              className="mb-6 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-md"
+            >
+              <div className="relative h-72 w-full">
+                <Image
+                  src={virginMaryImage}
+                  alt="Pèlerins à Panaghia de Vrysi"
+                  fill
+                  className="object-contain bg-stone-950"
+                  sizes="(max-width: 768px) 100vw, 960px"
+                />
+              </div>
+              <figcaption className="px-4 py-3 text-sm text-stone-600">
+                Le sanctuaire de Vrysi, haut lieu marial pour l’archipel.
+              </figcaption>
+            </figure>,
             "Panaghia de Vrysi constitue le sanctuaire marial de l’archidiocèse catholique de Naxos-Tinos-Andros-Mykonos.",
             "En empruntant la route menant vers Exomeria, on arrive à l’intersection d’Agia Marina. De là, la route vers Agios Romanos conduit au sanctuaire de la Vrysiotissa.",
             "Plusieurs théories expliquent l’origine du nom «Vrysi» :",
