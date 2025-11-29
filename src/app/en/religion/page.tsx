@@ -20,7 +20,6 @@ export default function ReligionEn() {
       heroFit="cover"
       introduction={[
         "Here you will find original text that preserves the histories, feast days, miracles, and rituals as they are passed down by the people of Tarampados.",
-        "The churches of St. Michael and St. Charalambos, the pilgrimage of the Virgin Mary of Vrysi, and the “Bebum Carum” custom are documented exactly as the community lives them.",
       ]}
       sections={[
         {

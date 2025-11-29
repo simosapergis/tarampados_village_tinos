@@ -90,11 +90,7 @@ export default function HomeEn() {
             ],
           },
         ]}
-        afterSections={
-          <div className="px-6">
-            <HomeCarousel locale="en" />
-          </div>
-        }
+        afterSections={<HomeCarousel locale="en" />}
         locale="en"
       />
     </div>

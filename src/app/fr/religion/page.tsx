@@ -20,7 +20,6 @@ export default function ReligionFr() {
       heroFit="cover"
       introduction={[
         "Vous trouverez ici des textes authentiques qui préservent les récits, les fêtes, les miracles et les gestes liturgiques tels qu’ils sont transmis par les habitants de Tarambados.",
-        "Les églises de Saint-Michel et Saint-Charalambos, le pèlerinage de la Vierge de Vrysi et la coutume « Bébum Karum » sont présentés avec la voix de la communauté qui les vit.",
       ]}
       sections={[
         {

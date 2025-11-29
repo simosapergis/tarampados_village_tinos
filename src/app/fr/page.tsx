@@ -91,11 +91,7 @@ export default function HomeFr() {
             ],
           },
         ]}
-        afterSections={
-          <div className="px-6">
-            <HomeCarousel locale="fr" />
-          </div>
-        }
+        afterSections={<HomeCarousel locale="fr" />}
         locale="fr"
       />
     </div>

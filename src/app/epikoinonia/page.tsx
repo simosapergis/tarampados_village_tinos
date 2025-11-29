@@ -57,7 +57,7 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="rounded-2xl border border-stone-200 bg-white/90 p-6 shadow-lg">
-              <ContactForm />
+              <ContactForm locale="el" />
             </div>
           </div>
         </section>
@@ -97,7 +97,11 @@ export default function ContactPage() {
         </section>
       </div>
 
-      <SiteFooter locale="el" />
+      <div className="px-6 pb-12">
+        <div className="mx-auto max-w-4xl space-y-4 border-t border-dashed border-stone-200 pt-6">
+          <SiteFooter locale="el" />
+        </div>
+      </div>
     </div>
   );
 }
