@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
 import heroHistory from "@public/images/hero/history.webp";
+import { getLatestNews } from "@/lib/news";
+import { NewsPreviewList } from "@/components/news-preview-list";
 
 export const metadata: Metadata = {
   title: "News | Tarampados Village",
@@ -8,39 +10,30 @@ export const metadata: Metadata = {
     "Latest announcements, community updates, and cultural highlights from Tarampados.",
 };
 
-export default function NewsEnPage() {
+export default async function NewsEnPage() {
+  const posts = await getLatestNews("en", 5);
+  const lastUpdated = posts[0]?.date ? new Date(posts[0].date) : null;
+
   return (
     <PageShell
       title="News"
       heroImage={heroHistory}
       heroFit="cover"
       introduction={[
-        "Our News hub curates every announcement from the Tarampados Association so that residents, friends, and visitors can follow the pulse of the village in real time.",
+        "Follow the pulse of Tarampados through the latest announcements, restoration efforts, and cultural gatherings from the association.",
       ]}
-      sections={[
-        {
-          heading: "Association announcements",
-          paragraphs: [
-            "Maintenance work on the dovecotes, open meetings, and collective decisions are documented transparently so you always know what is being planned.",
-            "Each note links practical next steps, whether you wish to volunteer, spread the word, or simply stay informed.",
-          ],
-        },
-        {
-          heading: "Events & participation",
-          paragraphs: [
-            "Seasonal festivities, guided walks, and creative workshops are listed with dates, venues, and registration details.",
-            "We highlight collaborative projects on Tinos or abroad so that the Tarampados network can join from near or far.",
-          ],
-        },
-        {
-          heading: "Digital releases",
-          paragraphs: [
-            "When new photo essays, oral histories, or educational resources go live, this section points you directly to the material.",
-            "The aim is to keep a living archive for everyone who cares about the village—even if they cannot be here physically.",
-          ],
-        },
-      ]}
+      sections={[]}
       locale="en"
+      afterSections={
+        <div className="space-y-6">
+          <NewsPreviewList posts={posts} locale="en" />
+          {lastUpdated && (
+            <p className="text-right text-sm text-stone-500">
+              Last updated: {new Intl.DateTimeFormat("en-GB").format(lastUpdated)}
+            </p>
+          )}
+        </div>
+      }
     />
   );
 }

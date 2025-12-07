@@ -33,7 +33,7 @@ export default function HomeEn() {
             heading: "History & Foundations",
             paragraphs: [
               (
-                <p>
+                <p key="history">
                   The village of Tarambados, one of the last to be built on Tinos, developed gradually after tragic events such as epidemics. With roots in
                   the 17th century, it replaced older settlements, combining history and tradition through architecture and feudal organization.
                   <Link href="/en/history" className={moreLinkClass} aria-label="Learn more about the history of Tarampados">
@@ -48,7 +48,7 @@ export default function HomeEn() {
             heading: "Dovecotes & Landscape",
             paragraphs: [
               (
-                <p>
+                <p key="dovecotes">
                   The dovecotes of the Tarambados Valley are cultural heritage monuments. Made of slate, they serve as pigeon houses that provide fertilizer,
                   as well as storage spaces. Their art originates from Italy and flourished particularly during the Venetian occupation.
                   <Link href="/en/culture" className={moreLinkClass} aria-label="Learn more about Tarampados dovecotes">
@@ -63,8 +63,8 @@ export default function HomeEn() {
             heading: "Customs & Celebrations",
             paragraphs: [
               (
-                <p>
-                  "Bebum Karum" is a Christmas custom that combines family gatherings with the Divine Liturgy. Grilled sausage, symbolizing the flesh, and fish
+                <p key="customs">
+                  &ldquo;Bebum Karum&rdquo; is a Christmas custom that combines family gatherings with the Divine Liturgy. Grilled sausage, symbolizing the flesh, and fish
                   soup are characteristic meals that accompany the spiritual celebration of the Incarnation.
                   <Link href="/en/culture" className={moreLinkClass} aria-label="Learn more about Tarampados customs">
                     More
@@ -78,8 +78,8 @@ export default function HomeEn() {
             heading: "Churches & Spiritual Life",
             paragraphs: [
               (
-                <p>
-                  The area's churches, such as Agios Michael and Panagia Vrysiotissa, are symbols of religious and cultural value. With a history spanning
+                <p key="churches">
+                  The area’s churches, such as Agios Michael and Panagia Vrysiotissa, are symbols of religious and cultural value. With a history spanning
                   centuries, they connect faith with traditions such as processions and blessings of guides.
                   <Link href="/en/religion" className={moreLinkClass} aria-label="Learn more about churches in Tarampados">
                     More

@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useRef, useState } from "react";
 import { navLinks, translatePathname } from "@/lib/navigation";
 import { localeLabels, locales, type Locale } from "@/i18n/config";
 
@@ -153,8 +153,16 @@ export function SiteHeader() {
     };
   }, [mobileMenuOpen]);
 
+  const previousPath = useRef(pathname);
+  const handlePathChange = useEffectEvent((nextPath: string) => {
+    if (previousPath.current !== nextPath) {
+      previousPath.current = nextPath;
+      setMobileMenuOpen(false);
+    }
+  });
+
   useEffect(() => {
-    setMobileMenuOpen(false);
+    handlePathChange(pathname);
   }, [pathname]);
 
   return (

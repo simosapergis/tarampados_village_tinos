@@ -111,18 +111,65 @@ export const navLinks: Record<Locale, NavLink[]> = locales.reduce(
   {} as Record<Locale, NavLink[]>
 );
 
+function normalizePath(value: string): string {
+  if (!value) {
+    return "/";
+  }
+  if (value === "/") {
+    return "/";
+  }
+  return value.replace(/\/+$/, "") || "/";
+}
+
+function joinPaths(base: string, remainder: string): string {
+  if (!remainder) {
+    return base || "/";
+  }
+
+  if (base === "/") {
+    return remainder.startsWith("/") ? remainder : `/${remainder}`;
+  }
+
+  return `${base}${remainder}`;
+}
+
 export function translatePathname(
   pathname: string,
   targetLocale: Locale
 ): string {
-  for (const key of Object.keys(localeRoutes) as RouteKey[]) {
-    const routes = localeRoutes[key];
-    if (
-      routes.el === pathname ||
-      routes.en === pathname ||
-      routes.fr === pathname
-    ) {
-      return routes[targetLocale];
+  const normalizedPath = normalizePath(pathname);
+
+  const entries = (
+    Object.keys(localeRoutes) as RouteKey[]
+  ).flatMap((key) =>
+    locales.map((locale) => ({
+      key,
+      path: normalizePath(localeRoutes[key][locale]),
+    }))
+  );
+
+  entries.sort((a, b) => b.path.length - a.path.length);
+
+  for (const entry of entries) {
+    const { key, path } = entry;
+
+    if (path === "/") {
+      if (normalizedPath !== "/") {
+        continue;
+      }
+      const targetBase = normalizePath(localeRoutes[key][targetLocale]);
+      return targetBase || "/";
+    }
+
+    if (normalizedPath === path) {
+      const targetBase = normalizePath(localeRoutes[key][targetLocale]);
+      return targetBase || "/";
+    }
+
+    if (normalizedPath.startsWith(`${path}/`)) {
+      const remainder = normalizedPath.slice(path.length);
+      const targetBase = normalizePath(localeRoutes[key][targetLocale]);
+      return joinPaths(targetBase, remainder);
     }
   }
 

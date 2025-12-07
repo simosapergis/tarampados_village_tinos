@@ -16,6 +16,7 @@ type PageShellProps = {
   highlights?: string[];
   footerNote?: string;
   heroImage?: string | StaticImageData;
+  heroImageMobile?: string | StaticImageData;
   heroFit?: "repeat" | "cover" | "contain";
   locale: Locale;
   showFooter?: boolean;
@@ -36,6 +37,7 @@ export function PageShell({
   highlights: _highlights = [],
   footerNote,
   heroImage,
+  heroImageMobile,
   heroFit = "repeat",
   locale,
   showFooter = true,
@@ -68,17 +70,50 @@ export function PageShell({
               }}
             />
           ) : (
-            <Image
-              src={heroImage}
-              alt=""
-              fill
-              priority
-              className={heroFit === "contain" ? "object-contain" : "object-cover"}
-              style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
-              {...(typeof heroImage === "object" && "blurDataURL" in heroImage && heroImage.blurDataURL
-                ? { placeholder: "blur", blurDataURL: heroImage.blurDataURL }
-                : { placeholder: "empty" })}
-            />
+            <>
+              {heroImageMobile ? (
+                <>
+                  <Image
+                    src={heroImage}
+                    alt=""
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 0px, 100vw"
+                    className={`hidden md:block ${heroFit === "contain" ? "object-contain" : "object-cover"}`}
+                    style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
+                    {...(typeof heroImage === "object" && "blurDataURL" in heroImage && heroImage.blurDataURL
+                      ? { placeholder: "blur", blurDataURL: heroImage.blurDataURL }
+                      : { placeholder: "empty" })}
+                  />
+                  <Image
+                    src={heroImageMobile}
+                    alt=""
+                    fill
+                    priority
+                    sizes="100vw"
+                    className={`md:hidden ${heroFit === "contain" ? "object-contain" : "object-cover"}`}
+                    style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
+                    {...(typeof heroImageMobile === "object" &&
+                    "blurDataURL" in heroImageMobile &&
+                    heroImageMobile.blurDataURL
+                      ? { placeholder: "blur", blurDataURL: heroImageMobile.blurDataURL }
+                      : { placeholder: "empty" })}
+                  />
+                </>
+              ) : (
+                <Image
+                  src={heroImage}
+                  alt=""
+                  fill
+                  priority
+                  className={heroFit === "contain" ? "object-contain" : "object-cover"}
+                  style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
+                  {...(typeof heroImage === "object" && "blurDataURL" in heroImage && heroImage.blurDataURL
+                    ? { placeholder: "blur", blurDataURL: heroImage.blurDataURL }
+                    : { placeholder: "empty" })}
+                />
+              )}
+            </>
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
           <div className="relative z-10 mx-auto flex min-h-[80svh] w-full max-w-6xl items-end px-4 py-10 md:px-6 md:py-12">
