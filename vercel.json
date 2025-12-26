@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "tarampados.gr"
+        }
+      ],
+      "destination": "https://www.tarampados.gr/:path*",
+      "permanent": true
+    }
+  ]
+}
+
