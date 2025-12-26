@@ -22,21 +22,21 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="bg-stone-50 text-stone-900">
-      <div className="mx-auto space-y-16 px-6 py-16">
-        <section className="mx-auto max-w-6xl rounded-3xl bg-gradient-to-br from-white via-stone-50 to-stone-100 p-10 shadow-lg">
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div className="space-y-6">
+      <div className="mx-auto space-y-16 px-4 md:px-6 py-16">
+        <section className="mx-auto max-w-6xl rounded-3xl bg-gradient-to-br from-white via-stone-50 to-stone-100 p-4 md:p-10 shadow-lg">
+          <div className="space-y-6 lg:space-y-0 lg:grid lg:gap-10 lg:grid-cols-2">
+            <div className="space-y-6 lg:block">
               <p className="text-xs uppercase tracking-[0.4em] text-stone-400">
                 Σύλλογος Ταραμπάδου Τήνου
               </p>
-              <h1 className="text-4xl font-serif text-stone-900">
+              <h1 className="text-2xl md:text-4xl font-serif text-stone-900">
                 Ελάτε σε επαφή μαζί μας για οποιαδήποτε πληροφορία ή ερώτηση.
               </h1>
               <p className="text-base text-stone-600">
                 Χρησιμοποιήστε τη φόρμα ή τα στοιχεία επικοινωνίας για να μοιραστείτε
                 ερωτήσεις, προτάσεις ή ενημερώσεις σχετικά με το χωριό και τις δράσεις του.
               </p>
-              <div className="grid gap-4 rounded-2xl border border-stone-200 bg-white/80 p-6 shadow-inner">
+              <div className="hidden md:grid gap-4 rounded-2xl border border-stone-200 bg-white/80 p-6 shadow-inner">
                 {contactDetails.map((item) => (
                   <div key={item.label}>
                     <p className="text-xs uppercase tracking-[0.3em] text-stone-400">
@@ -56,7 +56,7 @@ export default function ContactPage() {
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl border border-stone-200 bg-white/90 p-6 shadow-lg">
+            <div className="rounded-2xl border border-stone-200 bg-white/90 p-3 md:p-6 shadow-lg">
               <ContactForm locale="el" />
             </div>
           </div>

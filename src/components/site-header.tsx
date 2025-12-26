@@ -166,7 +166,7 @@ export function SiteHeader() {
   }, [pathname]);
 
   return (
-    <header className="relative z-20 border-b border-white/10 bg-[conic-gradient(at_top,_#0f172a,_#020617)] text-white shadow-lg">
+    <header className="sticky top-0 z-20 border-b border-white/10 bg-[conic-gradient(at_top,_#0f172a,_#020617)] text-white shadow-lg">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-6 md:py-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
