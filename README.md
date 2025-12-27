@@ -43,4 +43,3 @@ RESEND_FROM_EMAIL="Tarampados Village <contact@tarampados.gr>"
 RESEND_TO_EMAIL=tarampados@gmail.com
 ```
 
-Make sure `RESEND_FROM_EMAIL` belongs to a verified domain. If your domain DNS is managed outside Wix, add the TXT + CNAME records at the registrar (GoDaddy, Namecheap, Cloudflare, etc.). Otherwise, move DNS to a provider that allows adding Resend’s SPF/DKIM entries while keeping the existing A/CNAME records that point to Wix.

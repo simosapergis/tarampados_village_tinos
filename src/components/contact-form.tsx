@@ -87,6 +87,7 @@ export function ContactForm({ locale }: ContactFormProps) {
       email: formData.get("email")?.toString() ?? "",
       subject: formData.get("subject")?.toString() ?? "",
       message: formData.get("message")?.toString() ?? "",
+      company: formData.get("company")?.toString() ?? "", // honeypot
     };
 
     setFormState("loading");
@@ -138,6 +139,18 @@ export function ContactForm({ locale }: ContactFormProps) {
           className="mt-2 w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-stone-900 placeholder:text-stone-400 focus:border-emerald-500 focus:outline-none"
           placeholder={localeCopy.emailPlaceholder}
           required
+        />
+      </div>
+      {/* Honeypot field - hidden from humans, visible to bots */}
+      <div className="absolute -left-[5000px] opacity-0" aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          tabIndex={-1}
+          autoComplete="off"
+          className="h-0 w-0 border-0 p-0"
         />
       </div>
       <div>
