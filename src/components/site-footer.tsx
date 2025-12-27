@@ -86,7 +86,7 @@ const footerContent: Record<Locale, FooterContent> = {
 const socialLinks = [
   {
     label: "Facebook",
-    href: "https://www.facebook.com/tarambados/?locale=el_GR",
+    href: "https://www.facebook.com/Tarampados.official/?locale=el_GR",
     icon: (
       <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden>
         <path
