@@ -44,7 +44,7 @@ export async function POST(request: Request) {
   }
 
   // 3) Parse JSON safely
-  let body: unknown;
+  let body: Record<string, unknown>;
   try {
     body = await request.json();
   } catch {
