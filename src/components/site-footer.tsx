@@ -175,7 +175,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-stone-200 text-stone-700 transition hover:-translate-y-0.5 hover:text-amber-600"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-stone-200 text-stone-700 transition hover:-translate-y-0.5 hover:text-amber-700"
           >
             <span className="sr-only">{link.label}</span>
             {link.icon}

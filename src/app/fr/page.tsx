@@ -1,8 +1,10 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
-import { HomeCarousel } from "@/components/home-carousel";
 import heroHome from "@public/images/hero/home_1.webp";
+
+const HomeCarousel = dynamic(() => import("@/components/home-carousel").then((mod) => mod.HomeCarousel));
 
 export const metadata: Metadata = {
   title: "Notre Village | Tarampados Village",
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function HomeFr() {
   const moreLinkClass =
-    "ml-2 inline-flex items-center text-sm font-semibold text-amber-600 transition hover:text-amber-500";
+    "ml-2 inline-flex items-center text-sm font-semibold text-amber-700 transition hover:text-amber-600";
   const moreArrow = (
     <span aria-hidden className="ml-1">
       →

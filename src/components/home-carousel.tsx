@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m, LazyMotion, domAnimation } from "framer-motion";
 import type { Locale } from "@/i18n/config";
 
 type Slide = {
@@ -134,6 +134,7 @@ export function HomeCarousel({ locale }: HomeCarouselProps) {
   const [active, setActive] = useState(0);
   const total = slides.length;
   const [viewerOpen, setViewerOpen] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState<Record<number, boolean>>({});
 
   const headingId = useMemo(
     () => `home-carousel-${locale}-heading`,
@@ -145,6 +146,10 @@ export function HomeCarousel({ locale }: HomeCarouselProps) {
 
   function goTo(index: number) {
     setActive((index + total) % total);
+  }
+
+  function handleImageLoad(index: number) {
+    setImageLoaded((prev) => ({ ...prev, [index]: true }));
   }
 
   useEffect(() => {
@@ -186,65 +191,78 @@ export function HomeCarousel({ locale }: HomeCarouselProps) {
           onClick={() => openViewer(active)}
           className="relative block h-[360px] w-full overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
         >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={activeSlide.src}
-              className="absolute inset-0"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.02 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <Image
-                src={activeSlide.src}
-                alt={activeSlide.captions[locale]}
-                fill
-                className={[
-                  "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]",
-                  isChurchSlide ? "lg:!h-auto" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 960px"
-                priority
-              />
-              <div className="absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-black/70 via-black/40 to-transparent p-6 text-left text-white sm:block">
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                >
-                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
-                    {activeSlide.label[locale]}
-                  </p>
-                  <p className="mt-2 text-lg leading-relaxed">
-                    {activeSlide.captions[locale]}
-                  </p>
-                </motion.div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+          <LazyMotion features={domAnimation}>
+            <AnimatePresence mode="wait" initial={false}>
+              <m.div
+                key={activeSlide.src}
+                className="absolute inset-0 bg-stone-100"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.02 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {!imageLoaded[active] && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="h-8 w-8 animate-spin rounded-full border-4 border-stone-300 border-t-amber-600" />
+                  </div>
+                )}
+                <Image
+                  src={activeSlide.src}
+                  alt={activeSlide.captions[locale]}
+                  fill
+                  className={[
+                    "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]",
+                    isChurchSlide ? "lg:!h-auto" : "",
+                    !imageLoaded[active] ? "opacity-0" : "opacity-100",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 960px"
+                  priority
+                  onLoad={() => handleImageLoad(active)}
+                />
+                <div className="absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-black/70 via-black/40 to-transparent p-6 text-left text-white sm:block">
+                  <m.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  >
+                    <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
+                      {activeSlide.label[locale]}
+                    </p>
+                    <p className="mt-2 text-lg leading-relaxed">
+                      {activeSlide.captions[locale]}
+                    </p>
+                  </m.div>
+                </div>
+              </m.div>
+            </AnimatePresence>
+          </LazyMotion>
         </button>
         <div className="space-y-4 border-t border-stone-200 bg-white/80 px-6 py-4">
           <div className="flex items-center justify-between">
             <span className="text-sm font-medium text-stone-600">
               {String(active + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
             </span>
-            <div className="flex gap-2">
+            <div className="flex">
               {slides.map((slide, index) => (
                 <button
                   key={slide.src}
                   type="button"
                   onClick={() => setActive(index)}
                   aria-label={slide.label[locale]}
-                  className={[
-                    "h-2.5 w-2.5 rounded-full transition",
-                    index === active
-                      ? "bg-stone-900"
-                      : "bg-stone-300 hover:bg-stone-500",
-                  ].join(" ")}
-                />
+                  className="group p-2"
+                >
+                  <span
+                    className={[
+                      "block h-2.5 w-2.5 rounded-full transition",
+                      index === active
+                        ? "bg-stone-900"
+                        : "bg-stone-300 group-hover:bg-stone-500",
+                    ].join(" ")}
+                  />
+                </button>
               ))}
             </div>
           </div>
@@ -290,14 +308,20 @@ export function HomeCarousel({ locale }: HomeCarouselProps) {
               </button>
             </div>
             <div className="relative aspect-[3/2] w-full overflow-hidden rounded-3xl border border-white/10 bg-black">
+              {!imageLoaded[active] && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="h-8 w-8 animate-spin rounded-full border-4 border-white/20 border-t-white" />
+                </div>
+              )}
               <Image
                 key={`${activeSlide.src}-viewer`}
                 src={activeSlide.src}
                 alt={activeSlide.captions[locale]}
                 fill
-                className="object-contain"
+                className={["object-contain transition-opacity duration-300", !imageLoaded[active] ? "opacity-0" : "opacity-100"].join(" ")}
                 sizes="(max-width: 1600px) 100vw, 1600px"
                 priority
+                onLoad={() => handleImageLoad(active)}
               />
               <button
                 type="button"

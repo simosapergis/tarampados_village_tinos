@@ -78,6 +78,7 @@ export function PageShell({
                     alt=""
                     fill
                     priority
+                    fetchPriority="high"
                     sizes="(max-width: 768px) 0px, 100vw"
                     className={`hidden md:block !h-[85%] lg:!h-full ${heroFit === "contain" ? "object-contain" : "object-cover"}`}
                     style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
@@ -90,6 +91,7 @@ export function PageShell({
                     alt=""
                     fill
                     priority
+                    fetchPriority="high"
                     sizes="100vw"
                     className={`md:hidden !h-[85%] lg:!h-full ${heroFit === "contain" ? "object-contain" : "object-cover"}`}
                     style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
@@ -106,6 +108,7 @@ export function PageShell({
                   alt=""
                   fill
                   priority
+                  fetchPriority="high"
                   sizes="100vw"
                   className={`!h-[85%] lg:!h-full ${heroFit === "contain" ? "object-contain" : "object-cover"}`}
                   style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
