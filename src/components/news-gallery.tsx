@@ -20,7 +20,7 @@ export function NewsGallery({ locale: _locale, title, images }: NewsGalleryProps
         {title}
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
-        {images.map((image) => (
+        {(images || []).map((image) => (
           <div
             key={image.src}
             className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-stone-100 bg-stone-50"
