@@ -9,6 +9,8 @@ export type NewsFrontmatter = {
   heroDesktop?: string;
   heroMobile?: string;
   heroPreview?: string;
+  heroFit?: "cover" | "contain";
+  heroOverlay?: "default" | "mobile-only" | "none";
   tags?: string[];
 };
 
@@ -20,4 +22,3 @@ export type NewsListItem = NewsFrontmatter & {
 export type NewsArticle = NewsListItem & {
   content: ReactElement;
 };
-

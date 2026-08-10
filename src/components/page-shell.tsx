@@ -18,6 +18,7 @@ type PageShellProps = {
   heroImage?: string | StaticImageData;
   heroImageMobile?: string | StaticImageData;
   heroFit?: "repeat" | "cover" | "contain";
+  heroOverlay?: "default" | "mobile-only" | "none";
   locale: Locale;
   showFooter?: boolean;
   afterHero?: ReactNode;
@@ -39,12 +40,24 @@ export function PageShell({
   heroImage,
   heroImageMobile,
   heroFit = "repeat",
+  heroOverlay = "default",
   locale,
   showFooter = true,
   afterHero,
   afterSections,
 }: PageShellProps) {
   void _highlights;
+  const showHeroOverlay = heroOverlay !== "none";
+  const showHeroOverlayOnDesktop = heroOverlay === "default";
+  const overlayVisibilityClass = showHeroOverlayOnDesktop ? "" : "md:hidden";
+  const showHeaderAfterHero = Boolean(heroImage && heroOverlay === "mobile-only");
+  const headerAfterHeroClass =
+    heroOverlay === "mobile-only" ? "hidden px-6 pt-12 md:block" : "px-6 pt-12";
+  const heroImageHeightClass = showHeroOverlay ? "!h-[85%] lg:!h-full" : "!h-full";
+  const contentWrapperClass =
+    heroImage && !showHeroOverlay
+      ? "flex justify-center px-6 pb-16 pt-8 md:py-16"
+      : "flex justify-center px-6 py-16";
   const eyebrowClass = heroImage
     ? "hidden md:block text-xs font-semibold uppercase tracking-[0.35em] text-white/80"
     : "text-xs font-semibold uppercase tracking-[0.35em] text-stone-500";
@@ -80,7 +93,7 @@ export function PageShell({
                     priority
                     fetchPriority="high"
                     sizes="(max-width: 768px) 0px, 100vw"
-                    className={`hidden md:block !h-[85%] lg:!h-full ${heroFit === "contain" ? "object-contain" : "object-cover"}`}
+                    className={`hidden md:block ${heroImageHeightClass} ${heroFit === "contain" ? "object-contain" : "object-cover"}`}
                     style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
                     {...(typeof heroImage === "object" && "blurDataURL" in heroImage && heroImage.blurDataURL
                       ? { placeholder: "blur", blurDataURL: heroImage.blurDataURL }
@@ -92,8 +105,8 @@ export function PageShell({
                     fill
                     priority
                     fetchPriority="high"
-                    sizes="100vw"
-                    className={`md:hidden !h-[85%] lg:!h-full ${heroFit === "contain" ? "object-contain" : "object-cover"}`}
+                    sizes="(max-width: 767px) 100vw, 0px"
+                    className={`md:hidden ${heroImageHeightClass} ${heroFit === "contain" ? "object-contain" : "object-cover"}`}
                     style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
                     {...(typeof heroImageMobile === "object" &&
                     "blurDataURL" in heroImageMobile &&
@@ -110,7 +123,7 @@ export function PageShell({
                   priority
                   fetchPriority="high"
                   sizes="100vw"
-                  className={`!h-[85%] lg:!h-full ${heroFit === "contain" ? "object-contain" : "object-cover"}`}
+                  className={`${heroImageHeightClass} ${heroFit === "contain" ? "object-contain" : "object-cover"}`}
                   style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
                   {...(typeof heroImage === "object" && "blurDataURL" in heroImage && heroImage.blurDataURL
                     ? { placeholder: "blur", blurDataURL: heroImage.blurDataURL }
@@ -119,24 +132,52 @@ export function PageShell({
               )}
             </>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-          <div className="relative z-10 mx-auto flex min-h-[80svh] w-full max-w-6xl items-end px-4 pb-6 pt-10 md:px-6 md:py-12">
-            <div className="w-full rounded-3xl border border-white/20 bg-black/40 p-4 md:p-10 shadow-2xl backdrop-blur-lg">
-              <p className={eyebrowClass}>{eyebrowCopy[locale]}</p>
-              <h1 className={`${titleClass} py-2 md:py-5`}>{title}</h1>
-              <div className={introClass}>
-                {introduction.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
+          {showHeroOverlay && (
+            <>
+              <div
+                className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent ${overlayVisibilityClass}`}
+              />
+              <div
+                className={`relative z-10 mx-auto flex min-h-[80svh] w-full max-w-6xl items-end px-4 pb-6 pt-10 md:px-6 md:py-12 ${overlayVisibilityClass}`}
+              >
+                <div className="w-full rounded-3xl border border-white/20 bg-black/40 p-4 md:p-10 shadow-2xl backdrop-blur-lg">
+                  <p className={eyebrowClass}>{eyebrowCopy[locale]}</p>
+                  <h1 className={`${titleClass} py-2 md:py-5`}>{title}</h1>
+                  <div className={introClass}>
+                    {introduction.map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </>
+          )}
+          {showHeroOverlay && !showHeroOverlayOnDesktop && (
+            <div className="hidden min-h-[80svh] md:block" />
+          )}
+          {!showHeroOverlay && <div className="min-h-[80svh]" />}
         </section>
+      )}
+
+      {showHeaderAfterHero && (
+        <div className={headerAfterHeroClass}>
+          <header className="mx-auto w-full max-w-4xl space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-500">
+              {eyebrowCopy[locale]}
+            </p>
+            <h1 className="text-4xl font-serif text-stone-900">{title}</h1>
+            <div className="space-y-4 text-lg leading-8 text-stone-700">
+              {introduction.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+          </header>
+        </div>
       )}
 
       {afterHero && <div className="px-6 pb-12">{afterHero}</div>}
 
-      <div className="flex justify-center px-6 py-16">
+      <div className={contentWrapperClass}>
         <article className="w-full max-w-4xl space-y-12">
           {!heroImage && (
             <header className="space-y-4">
@@ -186,4 +227,3 @@ export function PageShell({
     </div>
   );
 }
-

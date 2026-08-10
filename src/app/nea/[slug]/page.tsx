@@ -51,7 +51,8 @@ export default async function NewsArticleElPage({ params }: PageProps) {
       title={article.title}
       heroImage={article.heroDesktop ?? article.hero}
       heroImageMobile={article.heroMobile ?? article.heroDesktop ?? article.hero}
-      heroFit="cover"
+      heroFit={article.heroFit}
+      heroOverlay={article.heroOverlay}
       introduction={[article.summary]}
       locale="el"
       sections={[]}
@@ -86,4 +87,3 @@ export default async function NewsArticleElPage({ params }: PageProps) {
     />
   );
 }
-

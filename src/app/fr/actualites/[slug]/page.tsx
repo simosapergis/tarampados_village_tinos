@@ -55,7 +55,8 @@ export default async function NewsArticleFrPage({ params }: PageProps) {
       title={article.title}
       heroImage={article.heroDesktop ?? article.hero}
       heroImageMobile={article.heroMobile ?? article.heroDesktop ?? article.hero}
-      heroFit="cover"
+      heroFit={article.heroFit}
+      heroOverlay={article.heroOverlay}
       introduction={[article.summary]}
       locale="fr"
       sections={[]}
@@ -90,4 +91,3 @@ export default async function NewsArticleFrPage({ params }: PageProps) {
     />
   );
 }
-

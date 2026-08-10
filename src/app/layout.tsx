@@ -1,20 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { defaultLocale } from "@/i18n/config";
 import { SiteHeader } from "@/components/site-header";
 import { PageTransition } from "@/components/page-transition";
 import { siteMetadata } from "@/lib/site-metadata";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -70,7 +59,7 @@ export default function RootLayout({
 
   return (
     <html lang={defaultLocale}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className="antialiased">
         <div className="flex min-h-screen flex-col bg-zinc-50 text-zinc-900 dark:bg-black dark:text-zinc-50">
           <SiteHeader />
           <main className="flex-1">

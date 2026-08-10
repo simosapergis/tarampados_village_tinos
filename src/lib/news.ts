@@ -21,7 +21,18 @@ function getLocaleDirectory(locale: Locale) {
 }
 
 function ensureFrontmatter(data: Record<string, unknown>): NewsFrontmatter {
-  const { title, summary, date, hero, heroDesktop, heroMobile, heroPreview, tags } = data;
+  const {
+    title,
+    summary,
+    date,
+    hero,
+    heroDesktop,
+    heroMobile,
+    heroPreview,
+    heroFit,
+    heroOverlay,
+    tags,
+  } = data;
   if (
     typeof title !== "string" ||
     typeof summary !== "string" ||
@@ -37,6 +48,9 @@ function ensureFrontmatter(data: Record<string, unknown>): NewsFrontmatter {
     typeof heroMobile === "string" && heroMobile.length > 0 ? heroMobile : resolvedHeroDesktop;
   const resolvedHeroPreview =
     typeof heroPreview === "string" && heroPreview.length > 0 ? heroPreview : resolvedHeroMobile;
+  const resolvedHeroFit = heroFit === "contain" ? heroFit : "cover";
+  const resolvedHeroOverlay =
+    heroOverlay === "mobile-only" || heroOverlay === "none" ? heroOverlay : "default";
 
   return {
     title,
@@ -46,6 +60,8 @@ function ensureFrontmatter(data: Record<string, unknown>): NewsFrontmatter {
     heroDesktop: resolvedHeroDesktop,
     heroMobile: resolvedHeroMobile,
     heroPreview: resolvedHeroPreview,
+    heroFit: resolvedHeroFit,
+    heroOverlay: resolvedHeroOverlay,
     tags: Array.isArray(tags) ? (tags as string[]) : undefined,
   };
 }
@@ -120,4 +136,3 @@ export async function getAllNewsSlugs(locale: Locale) {
   const items = await getAllNews(locale);
   return items.map((item) => item.slug);
 }
-
