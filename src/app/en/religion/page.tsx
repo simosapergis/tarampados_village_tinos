@@ -4,6 +4,7 @@ import { PageShell } from "@/components/page-shell";
 import heroReligion from "@public/images/hero/religion.webp";
 import saintMichaelImage from "@public/images/pages/religion/saint_michael.avif";
 import saintCharalambosImage from "@public/images/pages/religion/saint_charalambos.avif";
+import saintLukeImage from "@public/images/pages/religion/saint_luke.avif";
 import virginMaryImage from "@public/images/pages/religion/virgin_mary_of_vrysi.avif";
 
 export const metadata: Metadata = {
@@ -95,6 +96,59 @@ export default function ReligionEn() {
                 </div>
                 <figcaption className="px-4 py-3 text-sm text-stone-600">
                   St. Charalambos, the chapel that became a landmark for surrounding Orthodox villages.
+                </figcaption>
+              </figure>
+            </div>,
+          ],
+        },
+        {
+          heading: "Church of St. Luke",
+          paragraphs: [
+            <div
+              key="saint-luke-block"
+              className="flex flex-col gap-6 lg:flex-row lg:items-start"
+            >
+              <div className="space-y-3 text-lg leading-8 text-stone-700">
+                <p>
+                  The Church of St. Luke is one of the oldest and most historic religious monuments in Tarampados, a place inseparably linked to the story of the village and its people over the centuries.
+                </p>
+                <p>
+                  The exact date of its construction has not been recorded. Surviving evidence tells us that the church already existed before 1740, while its construction is thought to date to after 1600. Its presence therefore takes us back to the early years when Tarampados itself was taking shape and developing.
+                </p>
+                <p>
+                  For many years, St. Luke’s was much more than a chapel. It served as the parish church of Tarampados, at the heart of the community’s religious life, while also serving as the burial place for the village’s residents.
+                </p>
+                <p>
+                  It remained the parish church until 1810, when that role passed to the village’s new parish church, St. Michael’s, affectionately known to us as “Sa Mikael”. Since then, St. Luke’s has continued its long history as the cemetery of Tarampados, a role it retains to this day.
+                </p>
+                <p>
+                  What makes St. Luke’s truly special is its form and its continuous use. It is one of the very few indoor cemeteries in Greece and the only one that remains active.
+                </p>
+                <p>
+                  Inside the church, a place of prayer shares its space with a place of eternal rest. St. Luke’s is therefore more than a religious or architectural monument: it is a living record of the history of Tarampados. It is a place where generations of villagers come together symbolically, and where the memory of those who lived, worked and created in Tarampados remains present.
+                </p>
+                <p>
+                  The church is dedicated to St. Luke the Evangelist, one of the four Evangelists and the author of the Gospel of Luke and the Acts of the Apostles. His feast day is celebrated by the Catholic Church on 18 October.
+                </p>
+                <p>
+                  In his writings, St. Luke placed particular emphasis on compassion, forgiveness and care for others. Perhaps this gives a special significance to the fact that, for centuries, his name has been associated with a place where faith meets memory and the history of the village meets its people.
+                </p>
+                <p>
+                  St. Luke’s remains one of the most distinctive places in Tarampados today, both for what it reveals about the village’s past and because it continues to be part of its living history.
+                </p>
+              </div>
+              <figure className="w-full max-w-sm shrink-0 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-md">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={saintLukeImage}
+                    alt="View of the Church of St. Luke in Tarampados with dovecotes in the background"
+                    fill
+                    className="object-contain bg-stone-950"
+                    sizes="(max-width: 432px) calc(100vw - 48px), 384px"
+                  />
+                </div>
+                <figcaption className="px-4 py-3 text-sm text-stone-600">
+                  The Church of St. Luke, the former parish church and present-day cemetery of Tarampados.
                 </figcaption>
               </figure>
             </div>,

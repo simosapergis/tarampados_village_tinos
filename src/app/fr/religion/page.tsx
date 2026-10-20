@@ -4,6 +4,7 @@ import { PageShell } from "@/components/page-shell";
 import heroReligion from "@public/images/hero/religion.webp";
 import saintMichaelImage from "@public/images/pages/religion/saint_michael.avif";
 import saintCharalambosImage from "@public/images/pages/religion/saint_charalambos.avif";
+import saintLukeImage from "@public/images/pages/religion/saint_luke.avif";
 import virginMaryImage from "@public/images/pages/religion/virgin_mary_of_vrysi.avif";
 
 export const metadata: Metadata = {
@@ -94,6 +95,59 @@ export default function ReligionFr() {
                 </div>
                 <figcaption className="px-4 py-3 text-sm text-stone-600">
                   Saint-Charalambos, repère spirituel pour les villages orthodoxes voisins.
+                </figcaption>
+              </figure>
+            </div>,
+          ],
+        },
+        {
+          heading: "Église Saint-Luc",
+          paragraphs: [
+            <div
+              key="saint-luke-bloc"
+              className="flex flex-col gap-6 lg:flex-row lg:items-start"
+            >
+              <div className="space-y-3 text-lg leading-8 text-stone-700">
+                <p>
+                  L’église Saint-Luc est l’un des monuments religieux les plus anciens et les plus historiques de Tarambados, un lieu indissociable de l’histoire du village et de ses habitants au fil des siècles.
+                </p>
+                <p>
+                  La date exacte de sa construction n’a pas été consignée. Les éléments conservés nous apprennent que l’église existait déjà avant 1740, tandis que sa construction est située après 1600. Sa présence nous ramène donc aux premières périodes de formation et de développement de Tarambados.
+                </p>
+                <p>
+                  Pendant de nombreuses années, Saint-Luc fut bien plus qu’une simple chapelle. Elle fut l’église paroissiale de Tarambados, au cœur de la vie religieuse de la communauté, tout en servant de lieu de sépulture aux habitants du village.
+                </p>
+                <p>
+                  Elle conserva ce rôle d’église paroissiale jusqu’en 1810, lorsque la nouvelle église du village, Saint-Michel, que nous appelons affectueusement « Sa Mikael », lui succéda. Depuis, Saint-Luc poursuit sa longue histoire comme cimetière de Tarambados, une fonction qu’elle conserve encore aujourd’hui.
+                </p>
+                <p>
+                  Ce qui rend Saint-Luc si particulière, c’est sa forme et son utilisation continue. Elle abrite l’un des très rares cimetières intérieurs de Grèce et le seul encore en activité.
+                </p>
+                <p>
+                  À l’intérieur de l’église, le lieu de prière côtoie celui du repos éternel. Saint-Luc est ainsi bien plus qu’un monument religieux ou architectural : elle constitue une archive vivante de l’histoire de Tarambados. C’est un lieu où les générations du village se retrouvent symboliquement et où demeure la mémoire de ceux qui ont vécu, travaillé et créé à Tarambados.
+                </p>
+                <p>
+                  L’église est dédiée à saint Luc l’Évangéliste, l’un des quatre Évangélistes et l’auteur de l’Évangile selon saint Luc et des Actes des Apôtres. L’Église catholique célèbre sa fête le 18 octobre.
+                </p>
+                <p>
+                  Dans ses écrits, saint Luc a accordé une place particulière à la compassion, au pardon et à l’attention portée aux autres. C’est peut-être ce qui donne une signification particulière au fait que son nom accompagne depuis des siècles un lieu où la foi rencontre la mémoire et où l’histoire du village rejoint celle de ses habitants.
+                </p>
+                <p>
+                  Saint-Luc demeure aujourd’hui l’un des lieux les plus singuliers de Tarambados, tant pour ce qu’elle révèle du passé du village que parce qu’elle continue de faire partie de son histoire vivante.
+                </p>
+              </div>
+              <figure className="w-full max-w-sm shrink-0 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-md">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={saintLukeImage}
+                    alt="Vue de l’église Saint-Luc à Tarambados avec des pigeonniers en arrière-plan"
+                    fill
+                    className="object-contain bg-stone-950"
+                    sizes="(max-width: 432px) calc(100vw - 48px), 384px"
+                  />
+                </div>
+                <figcaption className="px-4 py-3 text-sm text-stone-600">
+                  L’église Saint-Luc, ancienne église paroissiale et actuel cimetière de Tarambados.
                 </figcaption>
               </figure>
             </div>,
